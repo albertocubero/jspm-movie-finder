@@ -20,6 +20,7 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.32",
     "jquery": "npm:jquery@3.1.1",
     "semantic-ui": "github:Semantic-Org/Semantic-UI@2.2.7",
+    "text": "github:systemjs/plugin-text@0.0.9",
     "github:Semantic-Org/Semantic-UI@2.2.7": {
       "css": "github:systemjs/plugin-css@0.1.32",
       "jquery": "npm:jquery@2.2.4"

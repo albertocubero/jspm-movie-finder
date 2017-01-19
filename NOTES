@@ -8,6 +8,7 @@ STEPS:
 - Add CSS/SASS styles: search in codePen or whatever.
     - Use Semantic UI
     - Card: http://jsbin.com/ximaxujafi/1/embed?html,output
+- JSPM plugin Google Fonts
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Find API to obtain any data to be shown.
 
@@ -26,7 +27,6 @@ Libraries:
 
 Ideas:
     - Events (Eventful)
-
         - Docs: http://api.eventful.com/docs/formats
             - URL: http://api.eventful.com/json/events/search?app_key=Cn3PHFjWRbzGCdmd&keywords=books&location=San+Diego&date=Future
         - user: acubero
