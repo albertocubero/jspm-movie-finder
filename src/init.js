@@ -1,5 +1,6 @@
-// Global Imports
-import 'semantic-ui/semantic.css!';
+// Global Imports JS
+import 'jquery.easing';
+import 'semantic-ui/semantic.js';
 
 // Views Imports
 import Header from './views/header/header';

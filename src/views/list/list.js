@@ -4,7 +4,12 @@ import $ from 'jquery';
 class List {
 
     constructor (options) {
-        $(options.node).html(listTemplate);
+        this.$el = $(options.node);
+        this.$el.html(listTemplate);
+
+
+
+
     }
 
 }

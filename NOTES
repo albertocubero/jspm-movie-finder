@@ -6,8 +6,11 @@ UI Proposals:
 
 STEPS:
 - Add CSS/SASS styles: search in codePen or whatever.
-    - Use Semantic UI
+    (OK)- Use Semantic UI
     - Card: http://jsbin.com/ximaxujafi/1/embed?html,output
+- Create list class (like a collection view)
+- Create card view and be uses by collection view
+- Communication by Events
 - JSPM plugin Google Fonts
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Find API to obtain any data to be shown.
@@ -32,3 +35,10 @@ Ideas:
         - user: acubero
         - pass: (la larga)
         - API KEY: Congratulations! Your new application key is Cn3PHFjWRbzGCdmd.
+
+    - CITIES
+        - http://geobytes.com/free-ajax-cities-jsonp-api/:
+            * http://gd.geobytes.com/AutoCompleteCity?callback=?&q=Madrid
+
+    - POI:
+        - https://apievangelist.com/2012/03/04/overview-of-11-places-data-apis/
