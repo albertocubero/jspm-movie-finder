@@ -1,11 +1,11 @@
-import headerTemplate from './templates/header.html!text';
+import headerTemplate from './templates/header.hbs!';
 import $ from 'jquery';
 
 class Header {
 
     constructor (options) {
         this.$el = $(options.node);
-        this.$el.html(headerTemplate);
+        this.$el.html(headerTemplate());
 
         this.ui = {
             search: $(this.$el.find('[data-role="search"]').get(0))

@@ -5,8 +5,9 @@ UI Proposals:
 - http://codepen.io/icebob/pen/yNpgqR
 
 STEPS:
+
+- Add Handlebars Templates
 - Add CSS/SASS styles: search in codePen or whatever.
-    (OK)- Use Semantic UI
     - Card: http://jsbin.com/ximaxujafi/1/embed?html,output
 - Create list class (like a collection view)
 - Create card view and be uses by collection view
@@ -14,6 +15,7 @@ STEPS:
 - JSPM plugin Google Fonts
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Find API to obtain any data to be shown.
+- Remove Inline style
 
 
 Libraries:
