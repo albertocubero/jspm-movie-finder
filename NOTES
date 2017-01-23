@@ -6,7 +6,7 @@ UI Proposals:
 
 STEPS:
 
-- Add Handlebars Templates
+(OK)- Add Handlebars Templates
 - Add CSS/SASS styles: search in codePen or whatever.
     - Card: http://jsbin.com/ximaxujafi/1/embed?html,output
 - Create list class (like a collection view)

@@ -5,19 +5,23 @@ import $ from 'jquery';
 class List {
 
     constructor (options) {
-        this.$el = $(options.node).html(this.template());
-        const $container = $(this.$el.find('[data-role="list-container"]').get(0));
+        const $el = $(options.node).html(this.template());
+        const $container = $($el.find('[data-role="list-container"]').get(0));
 
-        for (var i = 0; i < 16; i++) {
-            let card = new Card();
-            $container.append(card.render());
-        }
+        renderCards($container);
     }
 
     get template() {
         return listTemplate;
     }
 
+}
+
+const renderCards = ($container) => {
+    for (var i = 0; i < 16; i++) {
+        let card = new Card();
+        $container.append(card.render());
+    }
 }
 
 export default List;

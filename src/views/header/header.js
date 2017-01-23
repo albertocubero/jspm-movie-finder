@@ -4,8 +4,8 @@ import $ from 'jquery';
 class Header {
 
     constructor (options) {
-        this.$el = $(options.node).html(this.template());
-        const $search = $(this.$el.find('[data-role="search"]').get(0));
+        const $el = $(options.node).html(this.template());
+        const $search = $($el.find('[data-role="search"]').get(0));
 
         initSearch($search);
     }
@@ -33,7 +33,7 @@ const initSearch = ($node) => $node.search({
         });
         return response;
       }
-  },
+    },
     onSelect: function(result, response) {
        alert(result.title);
    }

@@ -7,12 +7,12 @@ class Card {
         this.$el = $('<div>').html(this.template());
     }
 
-    get template() {
-        return cardTemplate;
-    }
-
     render () {
         return this.$el.html();
+    }
+
+    get template() {
+        return cardTemplate;
     }
 
 }
