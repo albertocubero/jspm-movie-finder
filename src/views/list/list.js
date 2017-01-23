@@ -1,20 +1,21 @@
 import listTemplate from './templates/list.hbs!';
-import cardTemplate from './templates/card.hbs!';
+import Card from './card';
 import $ from 'jquery';
 
 class List {
 
     constructor (options) {
-        this.$el = $(options.node);
-        this.$el.html(listTemplate());
-
-        this.ui = {
-            container: $(this.$el.find('[data-role="list-container"]').get(0))
-        };
+        this.$el = $(options.node).html(this.template());
+        const $container = $(this.$el.find('[data-role="list-container"]').get(0));
 
         for (var i = 0; i < 16; i++) {
-            this.ui.container.append(cardTemplate());
+            let card = new Card();
+            $container.append(card.render());
         }
+    }
+
+    get template() {
+        return listTemplate;
     }
 
 }
