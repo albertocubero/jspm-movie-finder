@@ -1,13 +1,39 @@
-import headerTemplate from './templates/header.hbs!';
-import $ from 'jquery';
+import Emitter from 'weakee'
+import headerTemplate from './templates/header.hbs!'
+import $ from 'jquery'
 
-class Header {
+class Header extends Emitter {
 
-    constructor (options) {
-        const $el = $(options.node).html(this.template());
-        const $search = $($el.find('[data-role="search"]').get(0));
+    constructor(options) {
+        super();
 
-        initSearch($search);
+        this.$el = $(options.node).html(this.template());
+        this.$search = $(this.$el.find('[data-role="search"]').get(0));
+
+        this.initSearch();
+    }
+
+    initSearch() {
+        this.$search.search({
+            minCharacters: 3,
+            searchFullText: false,
+            apiSettings: {
+                url: '//gd.geobytes.com/AutoCompleteCity?callback=?&q={query}',
+                onResponse: (CitiesResponse) => {
+                    let response = { results: [] };
+                    let items = Object.keys(CitiesResponse).map((k) => CitiesResponse[k])
+                    items.forEach((item, index) => {
+                        response.results.push({
+                            title: item
+                        });
+                    });
+                    return response;
+                }
+            },
+            onSelect: (result, response) => {
+                this.emit('search:city');
+            }
+        });
     }
 
     get template() {
@@ -15,28 +41,5 @@ class Header {
     }
 
 }
-
-const initSearch = ($node) => $node.search({
-    minCharacters : 3,
-    searchFullText: false,
-    apiSettings   : {
-      url: '//gd.geobytes.com/AutoCompleteCity?callback=?&q={query}',
-      onResponse: function(CitiesResponse) {
-        let response = {
-            results : []
-        };
-        let items = Object.keys(CitiesResponse).map((k) => CitiesResponse[k])
-        items.forEach(function(item, index) {
-            response.results.push({
-                title: item
-            });
-        });
-        return response;
-      }
-    },
-    onSelect: function(result, response) {
-       alert(result.title);
-   }
-});
 
 export default Header;

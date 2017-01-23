@@ -22,6 +22,7 @@ System.config({
     "jquery": "npm:jquery@2.2.4",
     "jquery.easing": "npm:jquery.easing@1.4.1",
     "semantic-ui": "github:Semantic-Org/Semantic-UI@2.2.7",
+    "weakee": "npm:weakee@1.0.0",
     "github:Semantic-Org/Semantic-UI@2.2.7": {
       "css": "github:systemjs/plugin-css@0.1.32",
       "jquery": "npm:jquery@2.2.4"

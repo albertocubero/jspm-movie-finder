@@ -13,3 +13,5 @@ var headerView = new Header({
 var listView = new List({
     node: document.querySelector('[data-role="list"]')
 });
+
+headerView.on('search:city', () => console.log('Event Test'))
