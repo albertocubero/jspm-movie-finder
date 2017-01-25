@@ -18,7 +18,7 @@ class Header extends Emitter {
             minCharacters: 3,
             searchFullText: false,
             apiSettings: {
-                url: '//gd.geobytes.com/AutoCompleteCity?callback=?&q={query}',
+                url: '//gd.geobytes.com/AutoCompleteCity?callback=?&template=<geobytes%20city>,%20<geobytes%20country>&q={query}',
                 onResponse: (CitiesResponse) => {
                     let response = { results: [] };
                     let items = Object.keys(CitiesResponse).map((k) => CitiesResponse[k])
