@@ -7,7 +7,8 @@ class Card {
         this.$el = $('<div>').html(this.template());
     }
 
-    render () {
+    render (movie) {
+        this.$el = $('<div>').html(this.template(movie));
         return this.$el.html();
     }
 

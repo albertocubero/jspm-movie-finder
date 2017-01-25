@@ -10,11 +10,11 @@ class List {
     }
 
     render (movies) {
-        this.$container.html();
+        this.$container.html('');
 
         movies.forEach((movie) => {
             let card = new Card();
-            this.$container.append(card.render());
+            this.$container.append(card.render(movie));
         });
     }
 

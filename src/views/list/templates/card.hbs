@@ -1,5 +1,34 @@
-<a class="card">
-    <div class="image">
-        <img src="http://semantic-ui.com/images/wireframe/white-image.png">
-    </div>
-</a>
+<div class="ui card">
+    <div class="ui move reveal">
+        <div class="visible  content ui card">
+          <!-- <div class="ui card"> -->
+            <img class="ui image" src="https://image.tmdb.org/t/p/w500{{poster_path}}">
+            <div class="content">
+              <div class="header">{{title}}</div>
+              <!-- <div class="description">Invented in Naples in honor of the first queen of Italy, the Margherita pizza is the triumph of Italian cuisine in the world.</div> -->
+            </div>
+          <!-- </div> -->
+        </div>
+        <div class="hidden  content ui card" style="height: 100%;">
+          <!-- <div class="ui card"> -->
+              <div class="content">
+                  <div class="header">Sinopsis</div>
+              </div>
+              <div class="content" style="white-space: initial;">
+                  <!-- <div class="ui small feed"> -->
+                      <!-- <div class="event"> -->
+                          <!-- <div class="content"> -->
+                              <!-- <div class="summary"> -->
+                                  {{overview}}
+                              <!-- </div> -->
+                          <!-- </div> -->
+                      <!-- </div> -->
+                  <!-- </div> -->
+              </div>
+              <div class="extra content">
+                  <button class="ui button">Join Project</button>
+              </div>
+          <!-- </div> -->
+      </div>
+  </div>
+</div>
