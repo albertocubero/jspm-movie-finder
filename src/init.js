@@ -1,5 +1,5 @@
 // Global Imports JS
-import 'jquery.easing';
+import 'jquery.easing'; // TODO: remove it and JSPM uninstall
 import 'semantic-ui/semantic.js';
 
 // Views Imports
@@ -19,7 +19,5 @@ const listView = new List({
 
 headerView.on('search:movie', (movie) => {
     service.fetch()
-    .then((movies) => {
-        listView.render(movies);
-    });
+        .then((movies) => listView.render(movies));
 })

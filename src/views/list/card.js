@@ -3,12 +3,16 @@ import $ from 'jquery';
 
 class Card {
 
-    constructor (options) {
-        this.$el = $('<div>').html(this.template());
+    constructor(options) {
+        this.$el = $('<div>');
     }
 
-    render (movie) {
-        this.$el = $('<div>').html(this.template(movie));
+    render(movie) {
+        this.$el = this.$el.html(this.template(movie));
+        this.$el.find('[data-role="rate"]').rating({
+            maxRating: 5
+        });
+
         return this.$el.html();
     }
 

@@ -4,12 +4,12 @@ import $ from 'jquery';
 
 class List {
 
-    constructor (options) {
-        this.$el = $(options.node).html(this.template());
-        this.$container = $(this.$el.find('[data-role="list-container"]').get(0));
+    constructor(options) {
+        const $el = $(options.node).html(this.template());
+        this.$container = $($el.find('[data-role="list-container"]').get(0));
     }
 
-    render (movies) {
+    render(movies) {
         this.$container.html('');
 
         movies.forEach((movie) => {
@@ -18,7 +18,7 @@ class List {
         });
     }
 
-    get template () {
+    get template() {
         return listTemplate;
     }
 

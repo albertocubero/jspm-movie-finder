@@ -7,7 +7,13 @@ class MoviesService {
     }
 
     success (response) {
-        return response.json().then((data) => { return data.results; });
+        return response.json().then((data) => {
+            return data.results.map((movie) => {
+                movie.vote_average_rounded = Math.ceil(movie.vote_average/2);
+                movie.release_year = movie.release_date.split('-')[0];
+                return movie;
+            })
+        });
     }
 
     error (error) {
