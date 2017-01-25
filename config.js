@@ -18,6 +18,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.7",
     "css": "github:systemjs/plugin-css@0.1.32",
+    "dennyferra/TypeWatch": "github:dennyferra/TypeWatch@2.2.2",
     "hbs": "github:davis/plugin-hbs@1.2.3",
     "jquery": "npm:jquery@2.2.4",
     "jquery.easing": "npm:jquery.easing@1.4.1",

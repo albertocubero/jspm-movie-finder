@@ -1,6 +1,7 @@
 import Emitter from 'weakee'
 import headerTemplate from './templates/header.hbs!'
 import $ from 'jquery'
+import 'dennyferra/TypeWatch';
 
 class Header extends Emitter {
 
@@ -8,32 +9,24 @@ class Header extends Emitter {
         super();
 
         this.$el = $(options.node).html(this.template());
-        this.$search = $(this.$el.find('[data-role="search"]').get(0));
-
-        this.initSearch();
+        this.initSearchTipingDone();
     }
 
-    initSearch() {
-        this.$search.search({
-            minCharacters: 3,
-            searchFullText: false,
-            apiSettings: {
-                url: '//gd.geobytes.com/AutoCompleteCity?callback=?&template=<geobytes%20city>,%20<geobytes%20country>&q={query}',
-                onResponse: (CitiesResponse) => {
-                    let response = { results: [] };
-                    let items = Object.keys(CitiesResponse).map((k) => CitiesResponse[k])
-                    items.forEach((item, index) => {
-                        response.results.push({
-                            title: item
-                        });
-                    });
-                    return response;
-                }
-            },
-            onSelect: (result, response) => {
-                this.emit('search:city');
-            }
-        });
+    initSearchTipingDone() {
+
+        const callback = (value) => {
+            this.emit('search:movie', value);
+        };
+
+        const options = {
+            callback: callback,
+            wait: 500,
+            highlight: true,
+            allowSubmit: false,
+            captureLength: 2
+        };
+
+        $(this.$el.find('[data-role="search"]').get(0)).typeWatch(options);
     }
 
     get template() {

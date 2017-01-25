@@ -15,6 +15,6 @@ var listView = new List({
     node: document.querySelector('[data-role="list"]')
 });
 
-headerView.on('search:city', (citySelected) => {
-    console.log('Event Test', citySelected);
+headerView.on('search:movie', (movie) => {
+    console.log('Movie Test', movie);
 })
