@@ -12,10 +12,13 @@ STEPS:
 - Create list class (like a collection view)
 - Create card view and be uses by collection view
 - Communication by Events
+- Requests:
+    - https://jakearchibald.com/2015/thats-so-fetch/
 - JSPM plugin Google Fonts
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Find API to obtain any data to be shown.
 - Remove Inline style
+- JSPM production
 
 
 Libraries:
@@ -31,16 +34,21 @@ Libraries:
     http://codepen.io/Reklino/pen/VYRXQy
 
 Ideas:
-    - Events (Eventful)
+    (DESCATADO)- Events (Eventful)
         - Docs: http://api.eventful.com/docs/formats
             - URL: http://api.eventful.com/json/events/search?app_key=Cn3PHFjWRbzGCdmd&keywords=books&location=San+Diego&date=Future
         - user: acubero
         - pass: (la larga)
         - API KEY: Congratulations! Your new application key is Cn3PHFjWRbzGCdmd.
 
-    - CITIES
+    (DESCATADO)- CITIES
         - http://geobytes.com/free-ajax-cities-jsonp-api/:
             * http://gd.geobytes.com/AutoCompleteCity?callback=?&q=Madrid
 
-    - POI:
+    (DESCATADO)- POI:
         - https://apievangelist.com/2012/03/04/overview-of-11-places-data-apis/
+
+    - https://www.themoviedb.org/documentation/api (DOC: https://developers.themoviedb.org/3/getting-started/search-and-query-for-details)
+        - PASO 1: escribir nombre pelicula
+            - Que el input se escriba lo que sea, y cuando se detecte que se ha terminado de escribir, lanzar PETICION
+            (http://stackoverflow.com/questions/14042193/how-to-trigger-an-event-in-input-text-after-i-stop-typing-writing)
