@@ -5,16 +5,21 @@ import 'semantic-ui/semantic.js';
 // Views Imports
 import Header from './views/header/header';
 import List from './views/list/list';
-import Service from './services/eventful';
+import Service from './services/movies';
 
-var headerView = new Header({
+const service = new Service();
+
+const headerView = new Header({
     node: document.querySelector('[data-role="header"]')
 });
 
-var listView = new List({
+const listView = new List({
     node: document.querySelector('[data-role="list"]')
 });
 
 headerView.on('search:movie', (movie) => {
-    console.log('Movie Test', movie);
+    service.fetch()
+    .then((movies) => {
+        listView.render(movies);
+    });
 })
