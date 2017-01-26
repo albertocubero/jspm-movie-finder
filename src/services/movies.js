@@ -1,4 +1,5 @@
-const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fcc3e3e91b7cc38185ef902ca797ee11';
+const API_KEY = '0c9ce45a9defc82ba751660f32ad1642';
+const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=' + API_KEY;
 
 class MoviesService {
 
