@@ -15,12 +15,14 @@ STEPS:
     (OK) - https://jakearchibald.com/2015/thats-so-fetch/
 (OK)- Remove Inline style
 (OK) - Create API key
+(OK) - Search by movie title in the API
 
-- CSS Import in the html
+
 - Quitar peliculas sin imagenes
+- CSS modules Import in the html
 - Change Icon
 - Message for INITIAL STATE OF THE LIST, SEARCHING and NO RESULTS
-- Search by movie title in the API
+
 
 - Communication by Events
 - JSPM plugin Google Fonts
