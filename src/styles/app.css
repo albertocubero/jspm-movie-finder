@@ -1,0 +1,20 @@
+.movie-list {
+    margin-top: 0 !important;
+}
+
+.movie-card-info {
+    height: 100%;
+}
+
+.movie-card-info .movie-card-info-header {
+    display: flex;
+    align-items: flex-end;
+}
+
+.movie-card-info .movie-card-info-date {
+    flex-grow: 1;
+}
+
+.u-ws-i {
+    white-space: initial;
+}

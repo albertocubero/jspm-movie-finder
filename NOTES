@@ -6,19 +6,28 @@ UI Proposals:
 
 STEPS:
 
-(OK)- Add Handlebars Templates
-- Add CSS/SASS styles: search in codePen or whatever.
-    - Card: http://jsbin.com/ximaxujafi/1/embed?html,output
-- Create list class (like a collection view)
-- Create card view and be uses by collection view
+(OK) - Add Handlebars Templates
+(OK) - Add CSS/SASS styles: search in codePen or whatever.
+    (OK) - Card: http://jsbin.com/ximaxujafi/1/embed?html,output
+(OK) - Create list class
+(OK) - Create card view and be uses by collection view
+(OK) - Requests:
+    (OK) - https://jakearchibald.com/2015/thats-so-fetch/
+(OK)- Remove Inline style
+(OK) - Create API key
+
+- CSS Import in the html
+- Quitar peliculas sin imagenes
+- Change Icon
+- Message for INITIAL STATE OF THE LIST, SEARCHING and NO RESULTS
+- Search by movie title in the API
+
 - Communication by Events
-- Requests:
-    - https://jakearchibald.com/2015/thats-so-fetch/
 - JSPM plugin Google Fonts
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Find API to obtain any data to be shown.
-- Remove Inline style
 - JSPM production
+- Test con Jest
 
 
 Libraries:

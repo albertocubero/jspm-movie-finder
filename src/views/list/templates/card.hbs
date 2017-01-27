@@ -1,20 +1,20 @@
 <div class="ui card">
     <div class="ui move reveal">
-        <div class=" visible   content ui card">
+        <div class=" visible content ui card">
             <img class="ui image" src="https://image.tmdb.org/t/p/w500{{poster_path}}">
             <div class="content">
-                <div class="header" style="white-space: initial; ">{{title}}</div>
+                <div class="header u-ws-i">{{title}}</div>
             </div>
         </div>
-        <div class="hidden  content ui card" style="height: 100%;">
+        <div class="hidden content ui card movie-card-info">
             <div class="content">
-                <div class="header" style="white-space: initial;">{{title}}</div>
-                <div class="description" style="display: flex; align-items: flex-end;">
-                    <span class="date" style="flex-grow: 1;"><i class="calendar icon"></i>{{release_year}}</span>
+                <div class="header u-ws-i">{{title}}</div>
+                <div class="movie-card-info-header description">
+                    <span class="movie-card-info-date date"><i class="calendar icon"></i>{{release_year}}</span>
                     <div data-role="rate" class="ui star rating" data-rating="{{vote_average_rounded}}"></div>
                 </div>
             </div>
-            <div class="content" style="white-space: initial;">
+            <div class="content u-ws-i">
                 <div class="description">
                     {{overview}}
                 </div>
