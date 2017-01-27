@@ -18,6 +18,6 @@ const listView = new List({
 });
 
 headerView.on('search:movie', (movie) => {
-    service.fetch()
+    service.fetch(movie)
         .then((movies) => listView.render(movies));
 })
