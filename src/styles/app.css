@@ -2,6 +2,10 @@
     margin-top: 0 !important;
 }
 
+.movie-list-header {
+    margin-top: 12px;
+}
+
 .movie-card-info {
     height: 100%;
 }

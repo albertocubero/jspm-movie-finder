@@ -1,12 +1,13 @@
-import listTemplate from './templates/list.hbs!';
 import Card from './card';
 import $ from 'jquery';
+import popularTemplate from './templates/popular.hbs!';
+import searchTemplate from './templates/search.hbs!';
 
 class List {
 
     constructor(options) {
-        const $el = $(options.node).html(this.template());
-        this.$container = $($el.find('[data-role="list-container"]').get(0));
+        this.$el = $(options.node).html(this.template());
+        this.$container = $(this.$el.find('[data-role="list-container"]').get(0));
     }
 
     render(movies) {
@@ -19,9 +20,35 @@ class List {
     }
 
     get template() {
-        return listTemplate;
+        return () => '';
     }
 
 }
 
-export default List;
+class PopularMovies extends List {
+
+    get template() {
+        return popularTemplate;
+    }
+
+}
+
+class Results extends List {
+
+    constructor (options) {
+        super(options);
+
+        const $query = $(this.$el.find('[data-role="search-query"]').get(0));
+        $query.html(options.query);
+    }
+
+    get template() {
+        return searchTemplate;
+    }
+
+}
+
+export {
+    PopularMovies,
+    Results
+}

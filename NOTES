@@ -16,20 +16,21 @@ STEPS:
 (OK)- Remove Inline style
 (OK) - Create API key
 (OK) - Search by movie title in the API
+(OK) - Quitar peliculas sin imagenes
+(OK) - Find API to obtain any data to be shown.
 
 
-- Quitar peliculas sin imagenes
-- CSS modules Import in the html
-- Change Icon
+- Change Logo
 - Message for INITIAL STATE OF THE LIST, SEARCHING and NO RESULTS
-
-
 - Communication by Events
 - JSPM plugin Google Fonts
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
-- Find API to obtain any data to be shown.
+- Add Toolpip en el search
+
+- CSS modules Import in the html : Learn CSS Modules
 - JSPM production
 - Test con Jest
+- Loading in images: http://semantic-ui.com/elements/loader.html
 
 
 Libraries:

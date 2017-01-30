@@ -1,23 +1,34 @@
 // Global Imports JS
 import 'jquery.easing'; // TODO: remove it and JSPM uninstall
-import 'semantic-ui/semantic.js';
+import 'semantic-ui/semantic';
 
 // Views Imports
 import Header from './views/header/header';
-import List from './views/list/list';
-import Service from './services/movies';
+import { PopularMovies, Results } from './views/list/list';
+import { PopularService, SearchService } from './services/movies';
 
-const service = new Service();
+// Services Instances
+const popularService = new PopularService();
+const searchService = new SearchService();
 
+// Views Instances
 const headerView = new Header({
     node: document.querySelector('[data-role="header"]')
 });
-
-const listView = new List({
+const popularMovies = new PopularMovies({
     node: document.querySelector('[data-role="list"]')
 });
 
-headerView.on('search:movie', (movie) => {
-    service.fetch(movie)
-        .then((movies) => listView.render(movies));
+// Fetch Data
+popularService.fetch()
+    .then((movies) => popularMovies.render(movies));
+
+headerView.on('search:movie', (query) => {
+    const results = new Results({
+        node: document.querySelector('[data-role="list"]'),
+        query: query
+    });
+
+    searchService.fetch(query)
+        .then((movies) => results.render(movies));
 })
