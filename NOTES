@@ -6,11 +6,11 @@ UI Proposals:
 
 STEPS:
 
-- crear fichero app.js (controller)
-    - crear las instancias de services y vistas
-    - crear layout para gestionar el header de la lista (tendra 2 metodos staticos para mostrar los 2 headers, y 1 list container)
-    - extraer de las vistas los services (ver como mostrar el mensaje de SEARCHING)
-        - mostrarlo en el container del layout
+(OK) - crear fichero app.js (controller)
+    (OK) - crear las instancias de services y vistas
+    (OK) - crear layout para gestionar el header de la lista (tendra 2 metodos staticos para mostrar los 2 headers, y 1 list container)
+    (OK) - extraer de las vistas los services (ver como mostrar el mensaje de SEARCHING)
+        (OK) - mostrarlo en el container del layout
 
 
 - Message for SEARCHING and NO RESULTS
@@ -20,7 +20,7 @@ STEPS:
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Add Toolpip en el search
 - JSPM production
-
+- unificar clases (unas se llaman movie-... otras se llaman results-...)
 
 - CSS modules Import in the html : Learn CSS Modules
 - Test con Jest

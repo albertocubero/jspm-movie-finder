@@ -1,23 +1,51 @@
-import Header from './views/header/header';
-import { PopularMovies, Results } from './views/list/list';
+import Header from 'src/views/header/header';
+import Layout from 'src/views/layout/layout';
+import { PopularMovies, Results } from 'src/views/list/list';
+import { PopularService, SearchService } from 'src/services/movies';
 
 class App {
 
-    static start () {
+    static start() {
 
-        this.headerView = new Header({
+        // services
+        this.popularService = new PopularService();
+        this.searchService = new SearchService();
+
+        // Header view
+        const headerView = new Header({
             node: document.querySelector('[data-role="header"]')
         });
-        this.popularMovies = new PopularMovies({
+        headerView.on('search:movie', (query) => {
+            this.fetchSearchMovies(query)
+        });
+
+        // Layout view
+        this.layoutView = new Layout({
             node: document.querySelector('[data-role="list"]')
         });
 
-        this.headerView.on('search:movie', (query) => {
-            const results = new Results({
-                node: document.querySelector('[data-role="list"]'),
-                query: query
+        // Fetch Initial Movies
+        this.fetchPopularMovies();
+    }
+
+    static fetchPopularMovies () {
+        this.layoutView.showPopularHeader();
+        this.fetch(this.popularService)
+    }
+
+    static fetchSearchMovies (query) {
+        this.layoutView.showSearchHeader(query);
+        this.fetch(this.searchService, query)
+    }
+
+    static fetch(service, query) {
+        this.layoutView.resetList();
+        this.layoutView.showLoading();
+        service.fetch(query)
+            .then((movies) => {
+                this.layoutView.hideLoading();
+                this.layoutView.renderList(movies);
             });
-        });
     }
 
 }
