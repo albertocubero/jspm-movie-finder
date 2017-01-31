@@ -6,31 +6,18 @@ UI Proposals:
 
 STEPS:
 
-(OK) - Add Handlebars Templates
-(OK) - Add CSS/SASS styles: search in codePen or whatever.
-    (OK) - Card: http://jsbin.com/ximaxujafi/1/embed?html,output
-(OK) - Create list class
-(OK) - Create card view and be uses by collection view
-(OK) - Requests:
-    (OK) - https://jakearchibald.com/2015/thats-so-fetch/
-(OK)- Remove Inline style
-(OK) - Create API key
-(OK) - Search by movie title in the API
-(OK) - Quitar peliculas sin imagenes
-(OK) - Find API to obtain any data to be shown.
-
-
-- Change Logo
-- Message for INITIAL STATE OF THE LIST, SEARCHING and NO RESULTS
-- Communication by Events
-- JSPM plugin Google Fonts
+- Message for SEARCHING and NO RESULTS
+- Loading in images:
+    - http://semantic-ui.com/elements/loader.html
+    - http://semantic-ui.com/collections/message.html
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Add Toolpip en el search
+- JSPM production
+
 
 - CSS modules Import in the html : Learn CSS Modules
-- JSPM production
 - Test con Jest
-- Loading in images: http://semantic-ui.com/elements/loader.html
+
 
 
 Libraries:

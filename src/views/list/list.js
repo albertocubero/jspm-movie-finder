@@ -1,7 +1,8 @@
-import Card from './card';
 import $ from 'jquery';
+import { PopularService, SearchService } from '../../services/movies';
 import popularTemplate from './templates/popular.hbs!';
 import searchTemplate from './templates/search.hbs!';
+import Card from './card';
 
 class List {
 
@@ -27,6 +28,18 @@ class List {
 
 class PopularMovies extends List {
 
+    constructor (options) {
+        super(options);
+
+        this.fetch();
+    }
+
+    fetch () {
+        const service = new PopularService();
+        service.fetch()
+            .then((movies) => this.render(movies));
+    }
+
     get template() {
         return popularTemplate;
     }
@@ -38,8 +51,19 @@ class Results extends List {
     constructor (options) {
         super(options);
 
+        this.renderQuery(options.query);
+        this.fetch(options.query);
+    }
+
+    renderQuery (query) {
         const $query = $(this.$el.find('[data-role="search-query"]').get(0));
-        $query.html(options.query);
+        $query.html(query);
+    }
+
+    fetch (query) {
+        const service = new SearchService();
+        service.fetch(query)
+            .then((movies) => this.render(movies));
     }
 
     get template() {
