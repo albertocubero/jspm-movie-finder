@@ -6,6 +6,13 @@ UI Proposals:
 
 STEPS:
 
+- crear fichero app.js (controller)
+    - crear las instancias de services y vistas
+    - crear layout para gestionar el header de la lista (tendra 2 metodos staticos para mostrar los 2 headers, y 1 list container)
+    - extraer de las vistas los services (ver como mostrar el mensaje de SEARCHING)
+        - mostrarlo en el container del layout
+
+
 - Message for SEARCHING and NO RESULTS
 - Loading in images:
     - http://semantic-ui.com/elements/loader.html
