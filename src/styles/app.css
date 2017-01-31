@@ -1,3 +1,11 @@
+.movie-search::before {
+    width: 0 !important;
+}
+
+.movie-search {
+    height: 100%;
+}
+
 .movie-list {
     margin-top: 0 !important;
 }
