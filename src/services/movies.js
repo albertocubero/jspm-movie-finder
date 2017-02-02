@@ -6,12 +6,12 @@ class MoviesService {
 
     success(response) {
         return response.json()
-            .then((data) => {
+            .then((data) => { // filter movies without poster
                 return data.results.filter((movie) => {
                     return movie.poster_path !== null;
                 });
             })
-            .then((data) => {
+            .then((data) => { // customize properties
                 return data.map((movie) => {
                     movie.vote_average_rounded = Math.ceil(movie.vote_average / 2);
                     movie.release_year = movie.release_date.split('-')[0];

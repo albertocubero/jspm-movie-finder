@@ -7,12 +7,16 @@ class Layout {
 
     constructor (options) {
         this.$el = $(options.node).html(this.template());
-        this.$loading = $(this.$el.find('[data-role="loading"]').get(0));
         this.$header = $(this.$el.find('[data-role="header"]').get(0));
+        this.$loading = $(this.$el.find('[data-role="loading"]').get(0)).hide();
+        this.$noResults = $(this.$el.find('[data-role="no-results"]').get(0));
 
         this.list = new List({
             node: this.$el.find('[data-role="results-container"]').get(0)
         });
+
+        this.$loading.hide();
+        this.$noResults.hide();
     }
 
     showPopularHeader () {
@@ -24,7 +28,23 @@ class Layout {
         this.$header.find('[data-role="search-query"]').html(query);
     }
 
-    renderList (movies) {
+    performingRequest () {
+        this.resetList();
+        this.hideNoResultMessage();
+        this.showLoading();
+    }
+
+    requestFinished (movies) {
+        this.hideLoading();
+        if(movies && movies.length) {
+            this.hideNoResultMessage();
+            this.renderMovies(movies);
+        } else {
+            this.showNoResultMessage();
+        }
+    }
+
+    renderMovies (movies) {
         this.list.render(movies);
     }
 
@@ -38,6 +58,14 @@ class Layout {
 
     showLoading () {
         this.$loading.show();
+    }
+
+    hideNoResultMessage () {
+        this.$noResults.hide();
+    }
+
+    showNoResultMessage () {
+        this.$noResults.show();
     }
 
     get template () {
