@@ -28,7 +28,7 @@ class Layout {
         this.showLoading();
     }
 
-    requestFinished(movies) {
+    requestFinished(query, movies) {
         this.movies = movies;
         this.hideLoading();
         this.renderHeader(query);
@@ -40,7 +40,7 @@ class Layout {
         }
     }
 
-    restore () {
+    restore() {
         this.hideLoading();
         this.hideNoResultMessage();
         this.renderMovies(this.movies);
@@ -88,7 +88,7 @@ class Layout {
 
 class PopularLayout extends Layout {
 
-    constructor (options) {
+    constructor(options) {
         super(options);
     }
 
@@ -100,11 +100,11 @@ class PopularLayout extends Layout {
 
 class SearchLayout extends Layout {
 
-    constructor (options) {
+    constructor(options) {
         super(options);
     }
 
-    renderHeader (query) {
+    renderHeader(query) {
         this.$header.find('[data-role="search-query"]').html(query);
     }
 

@@ -50,7 +50,31 @@ class SearchService extends MoviesService {
 
 }
 
+function PopularServiceFactory() {
+    return new PopularService();
+}
+
+function SearchServiceFactory() {
+    let searchService = new SearchService();
+    searchService.fetch = createFetchProxy(searchService.fetch);
+
+    return searchService;
+}
+
+function createFetchProxy(fn) {
+    return new Proxy(fn, {
+        apply: (target, receiver, args) => {
+            const query = args[0];
+            if (query && query.length >= 3) {
+                return Reflect.apply(target, receiver, args);
+            } else {
+                return new Promise((resolve, reject) => reject());
+            }
+        }
+    });
+}
+
 export {
-    PopularService,
-    SearchService
+    PopularServiceFactory,
+    SearchServiceFactory
 };

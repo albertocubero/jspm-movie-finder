@@ -15,6 +15,7 @@ STEPS:
 (OK) - Crear layout para Popular y search.
 
 - Proxy en peticion de busqueda
+- Magic numbers
 
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Add Toolpip en el search
