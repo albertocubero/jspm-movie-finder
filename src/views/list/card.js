@@ -1,6 +1,12 @@
 import cardTemplate from './templates/card.hbs!';
 import $ from 'jquery';
 
+const UI = {
+    selector: {
+        rate: '[data-role="rate"]'
+    }
+}
+
 class Card {
 
     constructor(options) {
@@ -9,7 +15,7 @@ class Card {
 
     render(movie) {
         this.$el = this.$el.html(this.template(movie));
-        this.$el.find('[data-role="rate"]').rating({
+        this.$el.find(UI.selector.rate).rating({
             maxRating: 5
         });
 

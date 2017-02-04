@@ -1,6 +1,9 @@
+const SEARCH_MIN_LETTERS = 3;
 const API_KEY = '0c9ce45a9defc82ba751660f32ad1642';
-const POPULAR_URL = 'https://api.themoviedb.org/3/movie/now_playing?api_key=' + API_KEY;
-const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?api_key=' + API_KEY + '&query={movie}';
+const URL = {
+    POPULAR: 'https://api.themoviedb.org/3/movie/now_playing?api_key=' + API_KEY,
+    SEARCH: 'https://api.themoviedb.org/3/search/movie?api_key=' + API_KEY + '&query={movie}'
+}
 
 class MoviesService {
 
@@ -33,7 +36,7 @@ class PopularService extends MoviesService {
     }
 
     get url() {
-        return POPULAR_URL;
+        return URL.POPULAR;
     }
 
 }
@@ -45,7 +48,7 @@ class SearchService extends MoviesService {
     }
 
     get url() {
-        return SEARCH_URL;
+        return URL.SEARCH;
     }
 
 }
@@ -65,7 +68,7 @@ function createFetchProxy(fn) {
     return new Proxy(fn, {
         apply: (target, receiver, args) => {
             const query = args[0];
-            if (query && query.length >= 3) {
+            if (query && query.length >= SEARCH_MIN_LETTERS) {
                 return Reflect.apply(target, receiver, args);
             } else {
                 return new Promise((resolve, reject) => reject());

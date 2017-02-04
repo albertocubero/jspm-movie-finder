@@ -3,21 +3,30 @@ import searchHeaderTemplate from './templates/header/search.hbs!';
 import layoutTemplate from './templates/layout.hbs!';
 import List from 'src/views/list/list';
 
+const UI = {
+    selector: {
+        header: '[data-role="header"]',
+        loading: '[data-role="loading"]',
+        noResults: '[data-role="no-results"]',
+        list: '[data-role="list-container"]'
+    }
+}
+
 class Layout {
 
     constructor(options) {
         this.$el = $(options.node).html(this.template());
-        this.$header = $(this.$el.find('[data-role="header"]').get(0));
-        this.$loading = $(this.$el.find('[data-role="loading"]').get(0));
-        this.$noResults = $(this.$el.find('[data-role="no-results"]').get(0));
+        this.$header = $(this.$el.find(UI.selector.header).get(0));
+        this.$loading = $(this.$el.find(UI.selector.loading).get(0));
+        this.$noResults = $(this.$el.find(UI.selector.noResults).get(0));
         this.movies = [];
 
         this.listView = new List({
-            node: this.$el.find('[data-role="results-container"]').get(0)
+            node: this.$el.find(UI.selector.list).get(0)
         });
 
+        // Initialize Layout
         this.$header.html(this.headerTemplate());
-
         this.$loading.hide()
         this.$noResults.hide()
     }
@@ -29,7 +38,7 @@ class Layout {
     }
 
     requestFinished(query, movies) {
-        this.movies = movies;
+        this.saveMovies(movies);
         this.hideLoading();
         this.updateHeader(query);
         if (movies && movies.length) {
@@ -43,7 +52,15 @@ class Layout {
     restore() {
         this.hideLoading();
         this.hideNoResultMessage();
-        this.renderMovies(this.movies);
+        this.renderMovies(this.getLastMovies());
+    }
+
+    saveMovies(movies) {
+        this.movies = movies;
+    }
+
+    getLastMovies() {
+        return this.movies;
     }
 
     renderMovies(movies) {

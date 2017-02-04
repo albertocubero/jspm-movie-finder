@@ -13,6 +13,12 @@ import {
 } from 'src/services/movies';
 
 let popularService, searchService, layoutView, searchLayoutView, headerView;
+const UI = {
+    selector: {
+        header: '[data-role="header"]',
+        layout: '[data-role="list"]'
+    }
+}
 
 class App {
 
@@ -33,7 +39,7 @@ class App {
 
 function createHeader() {
     let view = new Header({
-        node: document.querySelector('[data-role="header"]')
+        node: document.querySelector(UI.selector.header)
     });
     view.on('search:movie', (query) => {
         fetchSearchMovies(query)
@@ -44,14 +50,14 @@ function createHeader() {
 
 function createPopularLayout() {
     return new PopularLayout({
-        node: document.querySelector('[data-role="list"]')
+        node: document.querySelector(UI.selector.layout)
     });
 }
 
 function createSearchLayout() {
     if (!searchLayoutView) {
         searchLayoutView = new SearchLayout({
-            node: document.querySelector('[data-role="list"]')
+            node: document.querySelector(UI.selector.layout)
         });
     }
 

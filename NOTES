@@ -14,7 +14,7 @@ STEPS:
 (OK) - unificar clases (unas se llaman movie-... otras se llaman results-...)
 (OK) - Crear layout para Popular y search.
 
-- Proxy en peticion de busqueda
+(OK)- Proxy en peticion de busqueda
 - Magic numbers
 
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
