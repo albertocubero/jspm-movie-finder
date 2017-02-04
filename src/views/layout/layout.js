@@ -31,7 +31,7 @@ class Layout {
     requestFinished(query, movies) {
         this.movies = movies;
         this.hideLoading();
-        this.renderHeader(query);
+        this.updateHeader(query);
         if (movies && movies.length) {
             this.hideNoResultMessage();
             this.renderMovies(movies);
@@ -80,7 +80,7 @@ class Layout {
     }
 
     // Abstract Method
-    renderHeader() {
+    updateHeader() {
         return () => '';
     }
 
@@ -104,7 +104,7 @@ class SearchLayout extends Layout {
         super(options);
     }
 
-    renderHeader(query) {
+    updateHeader(query) {
         this.$header.find('[data-role="search-query"]').html(query);
     }
 
