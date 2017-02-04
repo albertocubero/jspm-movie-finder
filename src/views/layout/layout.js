@@ -3,74 +3,105 @@ import searchHeaderTemplate from './templates/header/search.hbs!';
 import layoutTemplate from './templates/layout.hbs!';
 import List from 'src/views/list/list';
 
-let listView, $header, $loading, $noResults;
-
 class Layout {
 
     constructor(options) {
         this.$el = $(options.node).html(this.template());
-        $header = $(this.$el.find('[data-role="header"]').get(0));
-        $loading = $(this.$el.find('[data-role="loading"]').get(0)).hide();
-        $noResults = $(this.$el.find('[data-role="no-results"]').get(0)).hide();
+        this.$header = $(this.$el.find('[data-role="header"]').get(0));
+        this.$loading = $(this.$el.find('[data-role="loading"]').get(0)).hide();
+        this.$noResults = $(this.$el.find('[data-role="no-results"]').get(0)).hide();
 
-        listView = new List({
+        this.listView = new List({
             node: this.$el.find('[data-role="results-container"]').get(0)
         });
-    }
 
-    showPopularHeader() {
-        $header.html(popularHeaderTemplate());
-    }
-
-    showSearchHeader(query) {
-        $header.html(searchHeaderTemplate());
-        $header.find('[data-role="search-query"]').html(query);
+        this.$header.html(this.headerTemplate());
     }
 
     performingRequest() {
-        resetList();
-        hideNoResultMessage();
-        showLoading();
+        this.resetList();
+        this.hideNoResultMessage();
+        this.showLoading();
     }
 
     requestFinished(movies) {
-        hideLoading();
+        this.hideLoading();
         if (movies && movies.length) {
-            hideNoResultMessage();
-            renderMovies(movies);
+            this.hideNoResultMessage();
+            this.renderMovies(movies);
         } else {
-            showNoResultMessage();
+            this.showNoResultMessage();
         }
+    }
+
+    renderMovies(movies) {
+        this.listView.render(movies);
+    }
+
+    resetList() {
+        this.listView.reset();
+    }
+
+    hideLoading() {
+        this.$loading.hide();
+    }
+
+    showLoading() {
+        this.$loading.show();
+    }
+
+    hideNoResultMessage() {
+        this.$noResults.hide();
+    }
+
+    showNoResultMessage() {
+        this.$noResults.show();
     }
 
     get template() {
         return layoutTemplate;
     }
 
+    get headerTemplate() {
+        return () => '';
+    }
+
+    // Abstract Method
+    renderHeader() {
+        return () => '';
+    }
+
 }
 
-function renderMovies(movies) {
-    listView.render(movies);
+class PopularLayout extends Layout {
+
+    constructor (options) {
+        super(options);
+    }
+
+    get headerTemplate() {
+        return popularHeaderTemplate;
+    }
+
 }
 
-function resetList() {
-    listView.reset();
+class SearchLayout extends Layout {
+
+    constructor (options) {
+        super(options);
+    }
+
+    renderHeader (query) {
+        this.$header.find('[data-role="search-query"]').html(query);
+    }
+
+    get headerTemplate() {
+        return searchHeaderTemplate;
+    }
+
 }
 
-function hideLoading() {
-    $loading.hide();
-}
-
-function showLoading() {
-    $loading.show();
-}
-
-function hideNoResultMessage() {
-    $noResults.hide();
-}
-
-function showNoResultMessage() {
-    $noResults.show();
-}
-
-export default Layout;
+export {
+    PopularLayout,
+    SearchLayout
+};

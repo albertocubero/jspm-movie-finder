@@ -11,7 +11,9 @@ STEPS:
     (OK) - NO RESULTS
 (DEPRECATED)- private methods para layout.js
     (DEPRECATED)- http://stackoverflow.com/questions/27849064/how-to-implement-private-method-in-es6-class-with-traceur
-- unificar clases (unas se llaman movie-... otras se llaman results-...)
+(OK) - unificar clases (unas se llaman movie-... otras se llaman results-...)
+
+- Crear layout para Popular y search.
 
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Add Toolpip en el search

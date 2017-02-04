@@ -1,5 +1,5 @@
 import Header from 'src/views/header/header';
-import Layout from 'src/views/layout/layout';
+import { PopularLayout, SearchLayout } from 'src/views/layout/layout';
 import { PopularMovies, Results } from 'src/views/list/list';
 import { PopularService, SearchService } from 'src/services/movies';
 
@@ -21,7 +21,7 @@ class App {
         });
 
         // Layout view
-        layoutView = new Layout({
+        layoutView = new PopularLayout({
             node: document.querySelector('[data-role="list"]')
         });
 
@@ -32,12 +32,15 @@ class App {
 }
 
 function fetchPopularMovies () {
-    layoutView.showPopularHeader();
     fetch(popularService)
 }
 
 function fetchSearchMovies (query) {
-    layoutView.showSearchHeader(query);
+    layoutView = new SearchLayout({
+        node: document.querySelector('[data-role="list"]')
+    });
+
+    layoutView.renderHeader(query);
     fetch(searchService, query)
 }
 
