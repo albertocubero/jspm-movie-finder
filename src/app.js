@@ -12,7 +12,7 @@ import {
     SearchService
 } from 'src/services/movies';
 
-let popularService, searchService, popularLayoutView, searchLayoutView, headerView;
+let popularService, searchService, layoutView, searchLayoutView, headerView;
 
 class App {
 
@@ -20,6 +20,19 @@ class App {
         // services
         popularService = new PopularService();
         searchService = new SearchService();
+        searchService.fetch = new Proxy(searchService.fetch, {
+            apply: (target, receiver, args) => {
+                const query = args[0];
+                if (query.length >= 3) {
+                    return Reflect.apply(target, receiver, args);
+                } else {
+                    var p = new Promise(function(resolve, reject) {
+                        reject();
+                    })
+                    return p;
+                }
+            }
+        });
 
         // Header view
         headerView = new Header({
@@ -30,7 +43,7 @@ class App {
         });
 
         // Layout view
-        popularLayoutView = new PopularLayout({
+        layoutView = new PopularLayout({
             node: document.querySelector('[data-role="list"]')
         });
 
@@ -45,18 +58,16 @@ function fetchPopularMovies() {
 }
 
 function fetchSearchMovies(query) {
-    searchLayoutView = createSearchLayout(query);
+    layoutView = createSearchLayout();
     fetch(searchService, query)
 }
 
-function createSearchLayout(query) {
+function createSearchLayout() {
     if (!searchLayoutView) {
         searchLayoutView = new SearchLayout({
             node: document.querySelector('[data-role="list"]')
         });
     }
-
-    searchLayoutView.renderHeader(query);
 
     return searchLayoutView;
 }
@@ -65,7 +76,9 @@ function fetch(service, query) {
     layoutView.performingRequest();
     service.fetch(query)
         .then((movies) => {
-            layoutView.requestFinished(movies);
+            layoutView.requestFinished(query, movies);
+        }, () => {
+            layoutView.restore();
         });
 }
 

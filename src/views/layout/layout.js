@@ -8,14 +8,18 @@ class Layout {
     constructor(options) {
         this.$el = $(options.node).html(this.template());
         this.$header = $(this.$el.find('[data-role="header"]').get(0));
-        this.$loading = $(this.$el.find('[data-role="loading"]').get(0)).hide();
-        this.$noResults = $(this.$el.find('[data-role="no-results"]').get(0)).hide();
+        this.$loading = $(this.$el.find('[data-role="loading"]').get(0));
+        this.$noResults = $(this.$el.find('[data-role="no-results"]').get(0));
+        this.movies = [];
 
         this.listView = new List({
             node: this.$el.find('[data-role="results-container"]').get(0)
         });
 
         this.$header.html(this.headerTemplate());
+
+        this.$loading.hide()
+        this.$noResults.hide()
     }
 
     performingRequest() {
@@ -25,13 +29,21 @@ class Layout {
     }
 
     requestFinished(movies) {
+        this.movies = movies;
         this.hideLoading();
+        this.renderHeader(query);
         if (movies && movies.length) {
             this.hideNoResultMessage();
             this.renderMovies(movies);
         } else {
             this.showNoResultMessage();
         }
+    }
+
+    restore () {
+        this.hideLoading();
+        this.hideNoResultMessage();
+        this.renderMovies(this.movies);
     }
 
     renderMovies(movies) {
@@ -58,6 +70,7 @@ class Layout {
         this.$noResults.show();
     }
 
+    // Getters // Setters
     get template() {
         return layoutTemplate;
     }

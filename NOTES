@@ -6,14 +6,15 @@ UI Proposals:
 
 STEPS:
 
-- Message for:
+(OK) - Message for:
     (OK) - SEARCHING
     (OK) - NO RESULTS
 (DEPRECATED)- private methods para layout.js
     (DEPRECATED)- http://stackoverflow.com/questions/27849064/how-to-implement-private-method-in-es6-class-with-traceur
 (OK) - unificar clases (unas se llaman movie-... otras se llaman results-...)
+(OK) - Crear layout para Popular y search.
 
-- Crear layout para Popular y search.
+- Proxy en peticion de busqueda
 
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 - Add Toolpip en el search

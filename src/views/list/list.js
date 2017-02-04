@@ -10,7 +10,7 @@ class List {
     }
 
     render(movies) {
-        this.$container.html('');
+        this.reset();
 
         movies.forEach((movie) => {
             let card = new Card();
