@@ -1,9 +1,18 @@
 import Header from 'src/views/header/header';
-import { PopularLayout, SearchLayout } from 'src/views/layout/layout';
-import { PopularMovies, Results } from 'src/views/list/list';
-import { PopularService, SearchService } from 'src/services/movies';
+import {
+    PopularLayout,
+    SearchLayout
+} from 'src/views/layout/layout';
+import {
+    PopularMovies,
+    Results
+} from 'src/views/list/list';
+import {
+    PopularService,
+    SearchService
+} from 'src/services/movies';
 
-let popularService, searchService, layoutView, headerView;
+let popularService, searchService, popularLayoutView, searchLayoutView, headerView;
 
 class App {
 
@@ -21,7 +30,7 @@ class App {
         });
 
         // Layout view
-        layoutView = new PopularLayout({
+        popularLayoutView = new PopularLayout({
             node: document.querySelector('[data-role="list"]')
         });
 
@@ -31,17 +40,25 @@ class App {
 
 }
 
-function fetchPopularMovies () {
+function fetchPopularMovies() {
     fetch(popularService)
 }
 
-function fetchSearchMovies (query) {
-    layoutView = new SearchLayout({
-        node: document.querySelector('[data-role="list"]')
-    });
-
-    layoutView.renderHeader(query);
+function fetchSearchMovies(query) {
+    searchLayoutView = createSearchLayout(query);
     fetch(searchService, query)
+}
+
+function createSearchLayout(query) {
+    if (!searchLayoutView) {
+        searchLayoutView = new SearchLayout({
+            node: document.querySelector('[data-role="list"]')
+        });
+    }
+
+    searchLayoutView.renderHeader(query);
+
+    return searchLayoutView;
 }
 
 function fetch(service, query) {
