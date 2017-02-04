@@ -1,16 +1,16 @@
 <div class="ui card">
-    <div class="ui move reveal">
-        <div class=" visible content ui card">
+    <div class="ui move reveal card__content">
+        <div class="visible content ui card">
             <img class="ui image" src="https://image.tmdb.org/t/p/w500{{poster_path}}">
             <div class="content">
                 <div class="header u-ws-i">{{title}}</div>
             </div>
         </div>
-        <div class="hidden content ui card movie-card-info">
+        <div class="hidden content ui card card__description">
             <div class="content">
                 <div class="header u-ws-i">{{title}}</div>
-                <div class="movie-card-info-header description">
-                    <span class="movie-card-info-date date"><i class="calendar icon"></i>{{release_year}}</span>
+                <div class="extra description">
+                    <span class="extra__release-year"><i class="calendar icon"></i>{{release_year}}</span>
                     <div data-role="rate" class="ui star rating" data-rating="{{vote_average_rounded}}"></div>
                 </div>
             </div>

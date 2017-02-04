@@ -1,32 +1,38 @@
-.movie-search::before {
+/* App */
+.header__search-input::before {
     width: 0 !important;
 }
 
-.movie-search {
+.header__search-input {
     height: 100%;
 }
 
-.movie-list {
+.list {
     margin-top: 0 !important;
 }
 
-.movie-list-header {
+.list__header {
     margin-top: 12px;
 }
 
-.movie-card-info {
-    height: 100%;
+.card__content {
+    flex-grow: 1;
 }
 
-.movie-card-info .movie-card-info-header {
+.card__description {
+    height: 100% !important;
+}
+
+.extra {
     display: flex;
     align-items: flex-end;
 }
 
-.movie-card-info .movie-card-info-date {
+.extra__release-year {
     flex-grow: 1;
 }
 
+/* Utils */
 .u-ws-i {
     white-space: initial;
 }
