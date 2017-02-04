@@ -3,75 +3,74 @@ import searchHeaderTemplate from './templates/header/search.hbs!';
 import layoutTemplate from './templates/layout.hbs!';
 import List from 'src/views/list/list';
 
+let listView, $header, $loading, $noResults;
+
 class Layout {
 
-    constructor (options) {
+    constructor(options) {
         this.$el = $(options.node).html(this.template());
-        this.$header = $(this.$el.find('[data-role="header"]').get(0));
-        this.$loading = $(this.$el.find('[data-role="loading"]').get(0)).hide();
-        this.$noResults = $(this.$el.find('[data-role="no-results"]').get(0));
+        $header = $(this.$el.find('[data-role="header"]').get(0));
+        $loading = $(this.$el.find('[data-role="loading"]').get(0)).hide();
+        $noResults = $(this.$el.find('[data-role="no-results"]').get(0)).hide();
 
-        this.list = new List({
+        listView = new List({
             node: this.$el.find('[data-role="results-container"]').get(0)
         });
-
-        this.$loading.hide();
-        this.$noResults.hide();
     }
 
-    showPopularHeader () {
-        this.$header.html(popularHeaderTemplate());
+    showPopularHeader() {
+        $header.html(popularHeaderTemplate());
     }
 
-    showSearchHeader (query) {
-        this.$header.html(searchHeaderTemplate());
-        this.$header.find('[data-role="search-query"]').html(query);
+    showSearchHeader(query) {
+        $header.html(searchHeaderTemplate());
+        $header.find('[data-role="search-query"]').html(query);
     }
 
-    performingRequest () {
-        this.resetList();
-        this.hideNoResultMessage();
-        this.showLoading();
+    performingRequest() {
+        resetList();
+        hideNoResultMessage();
+        showLoading();
     }
 
-    requestFinished (movies) {
-        this.hideLoading();
-        if(movies && movies.length) {
-            this.hideNoResultMessage();
-            this.renderMovies(movies);
+    requestFinished(movies) {
+        hideLoading();
+        if (movies && movies.length) {
+            hideNoResultMessage();
+            renderMovies(movies);
         } else {
-            this.showNoResultMessage();
+            showNoResultMessage();
         }
     }
 
-    renderMovies (movies) {
-        this.list.render(movies);
-    }
-
-    resetList () {
-        this.list.reset();
-    }
-
-    hideLoading () {
-        this.$loading.hide();
-    }
-
-    showLoading () {
-        this.$loading.show();
-    }
-
-    hideNoResultMessage () {
-        this.$noResults.hide();
-    }
-
-    showNoResultMessage () {
-        this.$noResults.show();
-    }
-
-    get template () {
+    get template() {
         return layoutTemplate;
     }
 
+}
+
+function renderMovies(movies) {
+    listView.render(movies);
+}
+
+function resetList() {
+    listView.reset();
+}
+
+function hideLoading() {
+    $loading.hide();
+}
+
+function showLoading() {
+    $loading.show();
+}
+
+function hideNoResultMessage() {
+    $noResults.hide();
+}
+
+function showNoResultMessage() {
+    $noResults.show();
 }
 
 export default Layout;

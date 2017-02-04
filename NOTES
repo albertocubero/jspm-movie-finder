@@ -9,8 +9,8 @@ STEPS:
 - Message for:
     (OK) - SEARCHING
     (OK) - NO RESULTS
-- private methods para layout.js
-    - http://stackoverflow.com/questions/27849064/how-to-implement-private-method-in-es6-class-with-traceur
+(DEPRECATED)- private methods para layout.js
+    (DEPRECATED)- http://stackoverflow.com/questions/27849064/how-to-implement-private-method-in-es6-class-with-traceur
 - unificar clases (unas se llaman movie-... otras se llaman results-...)
 
 - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
