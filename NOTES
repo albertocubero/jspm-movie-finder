@@ -15,14 +15,17 @@ STEPS:
 (OK) - Crear layout para Popular y search.
 
 (OK)- Proxy en peticion de busqueda
-- Magic numbers
+(OK)- Magic numbers
 
-- Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
-- Add Toolpip en el search
-- Use ES6 generator in movie list
+(OK) - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
+(DEPRECATED)- Add Toolpip en el search
+(DEPRECATED)- Use ES6 generator in movie list
 - JSPM production
 
 
+
+
+- Design
 - CSS modules Import in the html : Learn CSS Modules
 - Test con Jest
 

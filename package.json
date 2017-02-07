@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "jspm": "jspm",
-    "serve": "node_modules/http-server/bin/http-server ."
+    "dev": "node_modules/http-server/bin/http-server .",
+    "prod": "jspm bundle src/init bundle.js --inject"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "fs-extra": "^2.0.0",
     "http-server": "^0.9.0",
     "jspm": "^0.16.48"
   },
