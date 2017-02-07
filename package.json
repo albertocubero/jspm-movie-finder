@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "colors": "^1.1.2",
     "fs-extra": "^2.0.0",
     "http-server": "^0.9.0",
     "jspm": "^0.16.48"
