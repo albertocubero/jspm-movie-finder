@@ -20,7 +20,7 @@ STEPS:
 (OK) - Add babel/polyfills (https://github.com/jspm/jspm-cli/issues/535)
 (DEPRECATED)- Add Toolpip en el search
 (DEPRECATED)- Use ES6 generator in movie list
-- JSPM production
+(OK)- JSPM production
 
 
 
