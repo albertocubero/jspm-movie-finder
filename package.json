@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "jspm": "jspm",
-    "dev": "node_modules/http-server/bin/http-server .",
+    "dev": "node_modules/http-server/bin/http-server -c-1 .",
     "prod": "jspm bundle src/init bundle.js --inject"
   },
   "keywords": [],

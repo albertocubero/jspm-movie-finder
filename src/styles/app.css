@@ -1,4 +1,30 @@
 /* App */
+body {
+    background: radial-gradient(#41b883,#35495e) !important;
+}
+
+.header__logo-container {
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%) !important;
+}
+
+.header__logo-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+
+.header__logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.header__container {
+    background: transparent !important;
+    border-width: 0 !important;
+    padding-top: 1rem !important;
+}
+
 .header__search-input::before {
     width: 0 !important;
 }
