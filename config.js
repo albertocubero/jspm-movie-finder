@@ -13,7 +13,7 @@ System.config({
     "npm:*": "jspm_packages/npm/*"
   },
   bundles: {
-    "build.js": [
+    "bundle.js": [
       "src/init.js",
       "src/app.js",
       "src/services/movies.js",

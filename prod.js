@@ -2,7 +2,7 @@ var fs = require('fs-extra');
 var jspm = require('jspm');
 var colors = require('colors/safe');
 
-var build = 'build.js';
+var bundle = 'bundle.js';
 var index = {
     src: 'index.html',
     prod: 'prod.html'
@@ -31,7 +31,7 @@ function replacePaths() {
         if (err) {
             return console.log(err);
         }
-        var result = data.replace(/<!-- @build.js -->/g, '<script src="' + build + '"></script>');
+        var result = data.replace(/<!-- @bundle.js -->/g, '<script src="' + bundle + '"></script>');
 
         fs.writeFile(index.prod, result, 'utf8', function(err) {
             if (err) return console.log(err);
@@ -45,10 +45,10 @@ function replacePaths() {
 }
 
 function createBundle() {
-    console.log(colors.underline("Creating \"bundle.js\""));
+    console.log(colors.underline("Creating \""+bundle+"\""));
 
     jspm.setPackagePath('.');
-    jspm.bundle('src/init', 'build.js', {
+    jspm.bundle('src/init', 'bundle.js', {
         injectConfig: true,
         minify: true
     }).then(function() {

@@ -6,7 +6,7 @@
   "scripts": {
     "jspm": "jspm",
     "dev": "node_modules/http-server/bin/http-server -c-1 .",
-    "prod": "jspm bundle src/init bundle.js --inject"
+    "prod": "node prod.js"
   },
   "keywords": [],
   "author": "",
