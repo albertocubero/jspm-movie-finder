@@ -16,6 +16,10 @@ npm run dev
 
 In the project directory, you can run:
 
+### `npm run dev`
+
+### `npm run prod`
+
 
 
 ## Support

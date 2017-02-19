@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "jspm": "jspm",
-    "dev": "node_modules/http-server/bin/http-server -c-1 .",
-    "prod": "node prod.js"
+    "start": "node_modules/http-server/bin/http-server -c-1 .",
+    "build": "node prod.js"
   },
   "keywords": [],
   "author": "",
