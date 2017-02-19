@@ -2,6 +2,9 @@
 
 A Movie Search App made with JSPM + ES6 and themoviedb.org API
 
+![Screenshot of Movie Finder - JSPM + ES6](https://github.com/albertocubero/jspm-movie-finder/blob/master/screenshot.png?raw=true)
+
+
 ## Installation
 
 Download or clone the project:
@@ -9,22 +12,21 @@ Download or clone the project:
 ```sh
 npm install
 npm run jspm install
-npm run dev
+npm start
 ```
 
 ## Usage
 
 In the project directory, you can run:
 
-### `npm run dev`
+### `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
-### `npm run prod`
+### `npm run build`
 
 Builds the app for production<br>
-
 Your app is ready to be deployed!
 
 ## Support
